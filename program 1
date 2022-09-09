@@ -1,0 +1,153 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+	int data;
+	struct node *next;
+	
+}*first,*last,*temp,*i;
+void insertatbegin();
+void insert_at_end();
+void searching();
+void traverse();
+int item;
+void main()
+{
+	int ch;
+	while(1)
+	{
+		printf("1.insert at last\n3.traverse\n2.searching\n4.exit\n5.inertatbegin\n");
+		printf("enter your choice\n");
+		scanf("%d",&ch);
+		switch(ch)
+		{   
+		case 5:insertatbegin();break;
+       case 1:insert_at_end();
+			break;
+			case 2:searching();
+			break;
+			case 3:traverse();
+			break;
+			case 4:exit(0);
+			break;
+			default:printf("wrong choice\n");
+			break;
+			
+		}
+	}
+	
+}
+void insertatbegin()
+{
+	temp=malloc(sizeof(struct node*));
+	if(temp==NULL)
+	first=last=temp;
+	else
+	{
+	
+		printf("enter item\n");
+		scanf("%d",&item);
+		temp->data=item;
+		
+		temp->next=first;
+		first=temp;
+}}
+void insert_at_end()
+{
+	temp=malloc(sizeof(struct node*));
+	if(temp==NULL)
+	first=last=temp;
+	else
+	{
+		for(i=first;i!=NULL;i=i->next)
+		last=i;
+		printf("enter item\n");
+		scanf("%d",&item);
+		temp->data=item;
+		last->next=temp;
+		temp->next=NULL;
+		last=temp;
+		
+	}
+}
+
+void traverse()
+{
+	for(i=first;i!=NULL;i=i->next)
+	printf("%d\n",i->data);
+}
+void searching()
+{
+	int found=0;
+	printf("enter item to searching\n");
+	scanf("%d",&item);
+	for(i=first;i!=NULL;i=i->next)
+	{
+		if(item==i->data)
+		{
+			found=1;
+			break;
+		}
+		else{
+		
+		found=0;
+	}
+	if(found==1)
+	printf("item found");
+	else{
+	
+	printf("item not found");
+	break;}
+}}
+output:
+1.insert at last
+3.traverse
+2.searching
+4.exit
+5.inertatbegin
+enter your choice
+5
+enter item
+10
+1.insert at last
+3.traverse
+2.searching
+4.exit
+5.inertatbegin
+enter your choice
+5
+enter item
+20
+1.insert at last
+3.traverse
+2.searching
+4.exit
+5.inertatbegin
+enter your choice
+1
+enter item
+30
+1.insert at last
+3.traverse
+2.searching
+4.exit
+5.inertatbegin
+enter your choice
+3
+20
+10
+30
+1.insert at last
+3.traverse
+2.searching
+4.exit
+5.inertatbegin
+enter your choice
+2
+enter item to searching
+40
+item not found1.insert at last
+3.traverse
+2.searching
+4.exit
+5.inertatbegin
